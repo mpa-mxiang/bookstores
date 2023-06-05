@@ -2,8 +2,7 @@ import './App.css';
 import {
   BrowserRouter as Router, Link, Route, Routes,
 } from 'react-router-dom';
-import Calculator from './components/Calculator';
-import Quote from './API/quote';
+import Categories from './components/Categories';
 import Home from './Home';
 
 const App = () => (
@@ -12,13 +11,10 @@ const App = () => (
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Books</Link>
           </li>
           <li>
-            <Link to="/calculator">Calculator</Link>
-          </li>
-          <li>
-            <Link to="/quote">Quote</Link>
+            <Link to="/categories">Categories</Link>
           </li>
         </ul>
       </nav>
@@ -26,8 +22,7 @@ const App = () => (
       <h1>Math Matician</h1>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/calculator" element={<Calculator />} />
-        <Route path="/quote" element={<Quote />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </div>
   </Router>
