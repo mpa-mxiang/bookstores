@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router, Link, Route, Routes,
 } from 'react-router-dom';
 import Categories from './components/Categories';
-import Home from './Home';
+import Books from './Books';
 
 const App = () => (
   <Router>
@@ -21,7 +21,7 @@ const App = () => (
 
       <h1>Bookstore</h1>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
     </div>
