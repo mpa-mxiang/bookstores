@@ -1,12 +1,12 @@
 
-# Math-magician
+# Bookstore
 
 <a name="readme-top"></a>
 
 <div align="center">
   <br/>
 
-  <h3><b> Math Magician</b></h3>
+  <h3><b> Bookstore</b></h3>
 
 </div>
 
@@ -30,9 +30,9 @@
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
-# 📖 Math Magician <a name="about-project"></a>
+# 📖 Bookstore <a name="about-project"></a>
 
-**Math Magician**
+**Bookstore**
 This is a project built with React.
 
 ## 🛠 Built With <a name="built-with">React</a>
