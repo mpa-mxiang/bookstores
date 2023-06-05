@@ -19,7 +19,7 @@ const App = () => (
         </ul>
       </nav>
 
-      <h1>Math Matician</h1>
+      <h1>Bookstore</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
