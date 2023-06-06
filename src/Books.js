@@ -1,13 +1,13 @@
 import React from 'react';
-import './Home.css';
+import BookList from './components/BookList';
+import NewBookForm from './components/NewBookForm';
 
-const Home = () => (
-  <div className="home-page">
-    <h2>Welcome to our page</h2>
-    <p>
-      This is my Bookstore building with React.
-    </p>
+const Books = () => (
+  <div>
+    <h2>Books</h2>
+    <BookList />
+    <NewBookForm />
   </div>
 );
 
-export default Home;
+export default Books;
