@@ -7,7 +7,10 @@ const Categories = () => {
   return (
     <div>
       <h1>Welcome to the Categories Page!</h1>
-      <p>Categories: {categories}</p>
+      <p>
+        Categories:
+        {categories}
+      </p>
     </div>
   );
 };

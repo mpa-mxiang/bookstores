@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/booksSlice';
+import PropTypes from 'prop-types';
+import { removeBook } from './BookSlice';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
@@ -12,10 +13,21 @@ const Book = ({ book }) => {
   return (
     <div>
       <h4>{book.title}</h4>
-      <p>Author: {book.author}</p>
-      <button onClick={handleRemoveBook}>Remove</button>
+      <p>
+        Author:
+        {book.author}
+      </p>
+      <button type="button" onClick={handleRemoveBook}>Remove</button>
     </div>
   );
+};
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Book;
