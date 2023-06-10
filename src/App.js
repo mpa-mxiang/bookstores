@@ -1,9 +1,12 @@
 import './App.css';
 import {
-  BrowserRouter as Router, Link, Route, Routes,
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Routes,
 } from 'react-router-dom';
 import Categories from './components/Categories';
-import Books from './Books';
+import Books from './components/Books';
 
 const App = () => (
   <Router>
