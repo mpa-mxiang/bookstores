@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from '../components/BookSlice';
+import booksReducer, { fetchBooksAsync, addBookAsync, removeBookAsync } from '../components/BookSlice';
 import categoriesReducer from '../components/CategoriesSlice';
 
 const store = configureStore({
@@ -9,4 +9,11 @@ const store = configureStore({
   },
 });
 
-export default store;
+store.dispatch(fetchBooksAsync());
+
+export default {
+  store,
+  fetchBooksAsync,
+  addBookAsync,
+  removeBookAsync,
+};

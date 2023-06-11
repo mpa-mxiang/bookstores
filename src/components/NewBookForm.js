@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from './BookSlice';
+import { addBooks } from './BookSlice';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
@@ -14,7 +14,7 @@ const NewBookForm = () => {
       title,
       author,
     };
-    dispatch(addBook(newBook));
+    dispatch(addBooks(newBook));
     setTitle('');
     setAuthor('');
   };

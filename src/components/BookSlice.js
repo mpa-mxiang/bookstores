@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchBooks, addBook, removeBook } from '../API/Api';
 
 const initialState = [
   {
@@ -21,6 +22,21 @@ const initialState = [
   },
 ];
 
+export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
+  const books = await fetchBooks();
+  return books;
+});
+
+export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
+  const newBook = await addBook(book);
+  return newBook;
+});
+
+export const removeBookAsync = createAsyncThunk('books/removeBook', async (bookId) => {
+  await removeBook(bookId);
+  return bookId;
+});
+
 const booksSlice = createSlice({
   name: 'books',
   initialState,
@@ -32,6 +48,6 @@ const booksSlice = createSlice({
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { addBooks, removeBooks } = booksSlice.actions;
 
 export default booksSlice.reducer;
