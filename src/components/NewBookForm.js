@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/BookSlice';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    const newBook = {
+      id: Math.random().toString(),
+      title,
+      author,
+    };
+    dispatch(addBook(newBook));
+    setTitle('');
+    setAuthor('');
   };
 
   return (
