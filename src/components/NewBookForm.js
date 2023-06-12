@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from './BookSlice';
+import { addBook } from '../redux/books/BookSlice';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
