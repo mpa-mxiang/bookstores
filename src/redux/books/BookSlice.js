@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchBooks, addBook, removeBook } from '../API/Api';
+import { fetchBooks, addBook, removeBook } from '../../API/Api';
 
 const initialState = [
   {
@@ -44,7 +44,12 @@ const booksSlice = createSlice({
     addBook: (state, action) => {
       state.push(action.payload);
     },
-    removeBook: (state, action) => state.filter((book) => book.id !== action.payload),
+    removeBook: (state, action) => {
+      const bookIndex = state.filter((book) => book.id !== action.payload);
+      if (bookIndex !== -1) {
+        state.splice(bookIndex, 1);
+      }
+    },
   },
 });
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NewBookForm from './components/NewBookForm';
-import { fetchBooksAsync, addBookAsync, removeBookAsync } from './components/BookSlice';
+import { fetchBooksAsync, addBookAsync, removeBookAsync } from './redux/books/BookSlice';
 import Book from './components/Book';
 
 const Books = () => {
