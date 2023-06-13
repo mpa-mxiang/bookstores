@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBooks } from '../redux/books/BookSlice';
+import { addBookAsync } from '../redux/books/BookSlice';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
@@ -10,11 +10,10 @@ const NewBookForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newBook = {
-      id: Math.random().toString(),
       title,
       author,
     };
-    dispatch(addBooks(newBook));
+    dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
   };

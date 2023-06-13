@@ -6,7 +6,7 @@ import Book from './components/Book';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
+  const books = useSelector((state) => state.books);
   const status = useSelector((state) => state.books.status);
   const error = useSelector((state) => state.books.error);
 
@@ -39,7 +39,7 @@ const Books = () => {
     <div>
       <h3>Book List</h3>
       {books.map((book) => (
-        <Book key={book.id} book={book} onRemove={handleRemoveBook} />
+        <Book key={book.item_id} book={book} onRemove={handleRemoveBook} />
       ))}
       <NewBookForm onAdd={handleAddBook} />
     </div>
