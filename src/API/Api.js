@@ -11,6 +11,8 @@ export const fetchBooks = async () => {
 // Add a book to the API
 export const addBook = async (book) => {
   const response = await axios.post(`${API_BASE_URL}/books`, book);
+  console.log(book);
+  console.log(response);
   return response.data;
 };
 
