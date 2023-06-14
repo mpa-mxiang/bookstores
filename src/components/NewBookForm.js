@@ -5,6 +5,7 @@ import { addBookAsync } from '../redux/books/BookSlice';
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('Fiction');
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -12,10 +13,12 @@ const NewBookForm = () => {
     const newBook = {
       title,
       author,
+      category,
     };
     await dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
+    setCategory('Fiction');
   };
 
   return (
@@ -34,6 +37,10 @@ const NewBookForm = () => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="Fiction">Fiction</option>
+          <option value="Nonfiction">Nonfiction</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>
