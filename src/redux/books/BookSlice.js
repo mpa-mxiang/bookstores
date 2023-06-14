@@ -52,11 +52,46 @@ const booksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(addBookAsync.fulfilled, (state, action) => {
-      // Add user to the state array
-      state.books = action.payload;
-    });
+    builder
+      .addCase(fetchBooksAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchBooksAsync.fulfilled, (state, action) => {
+        state.splice(0, state.length, ...action.payload);
+        state.loading = false;
+      })
+      .addCase(fetchBooksAsync.rejected, (state, action) => {
+        if (Array.isArray(action.payload)) {
+          state.splice(0, state.length, ...action.payload);
+        } else {
+          state.error = action.error.message;
+        }
+      })
+      .addCase(addBookAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addBookAsync.fulfilled, (state, action) => {
+        state.push(action.payload);
+        state.loading = false;
+      })
+      .addCase(addBookAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(removeBookAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(removeBookAsync.fulfilled, (state, action) => {
+        const bookIndex = state.findIndex((book) => book.item_id === action.payload);
+        if (bookIndex !== -1) {
+          state.splice(bookIndex, 1);
+        }
+        state.loading = false;
+      })
+      .addCase(removeBookAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
