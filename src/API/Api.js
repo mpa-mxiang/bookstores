@@ -10,10 +10,16 @@ export const fetchBooks = async () => {
 
 // Add a book to the API
 export const addBook = async (book) => {
-  const response = await axios.post(`${API_BASE_URL}/books`, book);
+  const itemId = Date.now();
+  const response = await axios.post(`${API_BASE_URL}/books`,
+    {
+      item_id: itemId,
+      ...book,
+    });
   console.log(book);
   console.log(response);
-  return response.data;
+
+  return { item_id: itemId, ...book };
 };
 
 // Remove a book from the API
