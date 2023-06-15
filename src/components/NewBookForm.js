@@ -8,17 +8,17 @@ const NewBookForm = () => {
   const [category, setCategory] = useState('Fiction');
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newBook = {
       title,
       author,
       category,
     };
-    await dispatch(addBookAsync(newBook));
+    dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
-    setCategory('Fiction');
+    setCategory('');
   };
 
   return (
@@ -30,12 +30,14 @@ const NewBookForm = () => {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <input
           type="text"
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          required
         />
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Fiction">Fiction</option>

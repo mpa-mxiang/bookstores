@@ -10,8 +10,8 @@ const Books = () => {
   const status = useSelector((state) => state.books.loading);
   const error = useSelector((state) => state.books.error);
   useEffect(() => {
-    dispatch(fetchBooksAsync());
-  }, [dispatch]);
+    dispatch(fetchBooksAsync(books));
+  }, [dispatch, books]);
 
   const handleAddBook = (book) => {
     dispatch(addBookAsync(book));
@@ -38,7 +38,14 @@ const Books = () => {
     <div>
       <h3>Book List</h3>
       {books.map((book) => (
-        <Book key={book.item_id} book={book} onRemove={handleRemoveBook} />
+        <Book
+          key={book.item_id}
+          id={book.item_id}
+          title={book.title}
+          author={book.author}
+          category={book.category}
+          onRemove={handleRemoveBook}
+        />
       ))}
       <NewBookForm onAdd={handleAddBook} />
     </div>
