@@ -20,7 +20,7 @@ export const addBookAsync = createAsyncThunk('books/addBook', async (book) => {
 export const removeBookAsync = createAsyncThunk('books/removeBook', async (bookId) => {
   await removeBook(bookId);
   return bookId;
-});
+
 
 const booksSlice = createSlice({
   name: 'books',
@@ -85,6 +85,5 @@ const booksSlice = createSlice({
   },
 });
 
-export const { addBooks, removeBooks } = booksSlice.actions;
-
+export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
