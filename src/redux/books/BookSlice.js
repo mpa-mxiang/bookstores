@@ -2,26 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchBooks, addBook, removeBook } from '../../API/Api';
 
 const initialState = {
-  books: [
-    {
-      item_id: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
+  books: [],
   loading: false,
   error: '',
 };
@@ -62,7 +43,6 @@ const booksSlice = createSlice({
       })
       .addCase(fetchBooksAsync.fulfilled, (state, action) => {
         state.books = action.payload;
-        state.loading = false;
       })
       .addCase(fetchBooksAsync.rejected, (state, action) => {
         state.error = action.error.message;
