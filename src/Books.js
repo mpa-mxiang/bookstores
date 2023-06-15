@@ -6,17 +6,9 @@ import Book from './components/Book';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.books);
   const status = useSelector((state) => state.books.loading);
   const error = useSelector((state) => state.books.error);
-  const booksId = Object.keys(books);
-  const markBookId = booksId.map((bookId) => ({
-    id: booksId[bookId],
-    title: booksId[bookId],
-    author: booksId[bookId],
-    category: booksId[bookId],
-  }));
-  console.log(markBookId);
   useEffect(() => {
     dispatch(fetchBooksAsync());
   }, [dispatch]);

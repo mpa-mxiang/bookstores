@@ -16,10 +16,8 @@ export const addBook = async (book) => {
       item_id: itemId,
       ...book,
     });
-  console.log(book);
-  console.log(response);
 
-  return { item_id: itemId, ...book };
+  return response.data;
 };
 
 // Remove a book from the API

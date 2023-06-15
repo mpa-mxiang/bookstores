@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Book = ({ book, onRemove }) => {
   const handleRemoveBook = () => {
-    onRemove(book.id);
+    onRemove(book.item_id);
   };
 
   return (
@@ -20,7 +20,7 @@ const Book = ({ book, onRemove }) => {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string,
+    item_id: PropTypes.number,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
   }).isRequired,

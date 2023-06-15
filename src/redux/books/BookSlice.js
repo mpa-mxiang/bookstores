@@ -26,6 +26,7 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
+    /*
     addBook: (state, action) => {
       state.push(action.payload);
     },
@@ -35,6 +36,7 @@ const booksSlice = createSlice({
         state.splice(bookIndex, 1);
       }
     },
+    */
   },
   extraReducers: (builder) => {
     builder
@@ -42,7 +44,16 @@ const booksSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchBooksAsync.fulfilled, (state, action) => {
-        state.books = action.payload;
+        state.loading = false;
+        const anotherBook = action.payload;
+        const booksId = Object.keys(anotherBook);
+        const markBookId = booksId.map((bookId) => ({
+          item_id: Number(bookId),
+          title: anotherBook[bookId][0].title,
+          author: anotherBook[bookId][0].author,
+          category: anotherBook[bookId][0].category,
+        }));
+        state.books = markBookId;
       })
       .addCase(fetchBooksAsync.rejected, (state, action) => {
         state.error = action.error.message;
@@ -63,8 +74,9 @@ const booksSlice = createSlice({
         state.loading = true;
       })
       .addCase(removeBookAsync.fulfilled, (state, action) => {
-        state.books = state.books.filter((book) => book.item_id !== action.payload);
         state.loading = false;
+        const temp = state.books.filter((book) => book.item_id !== action.payload);
+        state.books = temp;
       })
       .addCase(removeBookAsync.rejected, (state, action) => {
         state.error = action.error.message;
