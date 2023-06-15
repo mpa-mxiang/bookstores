@@ -7,7 +7,7 @@ import Book from './components/Book';
 const Books = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books);
-  const status = useSelector((state) => state.books.status);
+  const status = useSelector((state) => state.books.loading);
   const error = useSelector((state) => state.books.error);
 
   useEffect(() => {

@@ -1,26 +1,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchBooks, addBook, removeBook } from '../../API/Api';
 
-const initialState = [
-  {
-    item_id: 'item1',
-    title: 'The Great Gatsby',
-    author: 'John Smith',
-    category: 'Fiction',
-  },
-  {
-    item_id: 'item2',
-    title: 'Anna Karenina',
-    author: 'Leo Tolstoy',
-    category: 'Fiction',
-  },
-  {
-    item_id: 'item3',
-    title: 'The Selfish Gene',
-    author: 'Richard Dawkins',
-    category: 'Nonfiction',
-  },
-];
+const initialState = {
+  books: [
+    {
+      item_id: 'item1',
+      title: 'The Great Gatsby',
+      author: 'John Smith',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item2',
+      title: 'Anna Karenina',
+      author: 'Leo Tolstoy',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item3',
+      title: 'The Selfish Gene',
+      author: 'Richard Dawkins',
+      category: 'Nonfiction',
+    },
+  ],
+  loading: false,
+  error: '',
+};
 
 export const fetchBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
   const books = await fetchBooks();
@@ -57,40 +61,34 @@ const booksSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchBooksAsync.fulfilled, (state, action) => {
-        state.splice(0, state.length, ...action.payload);
+        state.books = action.payload;
         state.loading = false;
       })
       .addCase(fetchBooksAsync.rejected, (state, action) => {
-        if (Array.isArray(action.payload)) {
-          state.splice(0, state.length, ...action.payload);
-        } else {
-          state.error = action.error.message;
-        }
+        state.error = action.error.message;
+        state.loading = false;
       })
       .addCase(addBookAsync.pending, (state) => {
         state.loading = true;
       })
       .addCase(addBookAsync.fulfilled, (state, action) => {
-        state.push(action.payload);
+        state.books.push(action.payload);
         state.loading = false;
       })
       .addCase(addBookAsync.rejected, (state, action) => {
-        state.loading = false;
         state.error = action.error.message;
+        state.loading = false;
       })
       .addCase(removeBookAsync.pending, (state) => {
         state.loading = true;
       })
       .addCase(removeBookAsync.fulfilled, (state, action) => {
-        const bookIndex = state.findIndex((book) => book.item_id === action.payload);
-        if (bookIndex !== -1) {
-          state.splice(bookIndex, 1);
-        }
+        state.books = state.books.filter((book) => book.item_id !== action.payload);
         state.loading = false;
       })
       .addCase(removeBookAsync.rejected, (state, action) => {
-        state.loading = false;
         state.error = action.error.message;
+        state.loading = false;
       });
   },
 });
