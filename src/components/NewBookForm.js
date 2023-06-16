@@ -11,6 +11,7 @@ const NewBookForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newBook = {
+      id: Math.random(),
       title,
       author,
       category,
