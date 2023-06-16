@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/BookSlice';
+import { addBookAsync } from '../redux/books/BookSlice';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('Fiction');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newBook = {
-      id: Math.random().toString(),
+      id: Math.random(),
       title,
       author,
+      category,
     };
-    dispatch(addBook(newBook));
+    dispatch(addBookAsync(newBook));
     setTitle('');
     setAuthor('');
+    setCategory('');
   };
 
   return (
@@ -28,13 +31,19 @@ const NewBookForm = () => {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <input
           type="text"
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          required
         />
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="Fiction">Fiction</option>
+          <option value="Nonfiction">Nonfiction</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>
