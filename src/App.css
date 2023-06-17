@@ -40,10 +40,21 @@ nav {
   display: flex;
   background-color: #fff;
   justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.nav-div {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.span-div {
+  margin: 2.313rem 0;
 }
 
 .Bookstore-CMS {
-  width: 15rem;
+  width: 18rem;
   height: 2.313rem;
   font-family: Montserrat, sans-serif;
   font-size: 1.875rem;
@@ -53,11 +64,10 @@ nav {
   line-height: normal;
   letter-spacing: normal;
   color: var(--azure);
-  margin: 2.313rem 6.25rem;
+  margin: 2.313rem 0;
 }
 
 .BOOKS {
-  width: 3.688rem;
   height: 1rem;
   font-family: Montserrat, sans-serif;
   font-size: 0.813rem;
@@ -70,9 +80,7 @@ nav {
 }
 
 .CATEGORIES {
-  width: 6.563rem;
   height: 1rem;
-  margin: 1.125rem 30.5rem 0.688rem 3.563rem;
   opacity: 0.5;
   font-family: Montserrat, sans-serif;
   font-size: 0.813rem;

@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Sans:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=RobotoSlab+Sans:wght@300;400;500&display=swap');
 
+.book-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fafafa;
+}
 .Lesson-Panel {
-  width: 75.6rem;
+  width: 129.6rem;
   height: 10.625rem;
   margin: 2.313rem 6.25rem;
-  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  padding: 2rem 4.188rem 1.625rem 1.688rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
   display: flex;
   flex-direction: row;
-  padding-right: 0;
   align-items: center;
+  justify-content: space-around;
 }
 
 .book-char {
@@ -60,6 +65,7 @@
   line-height: normal;
   letter-spacing: normal;
   color: #4386bf;
+  text-align: left;
 }
 
 .btn {
@@ -67,6 +73,11 @@
   border: none;
   text-align: left;
   padding: 0;
+}
+
+.progress-div {
+  display: flex;
+  gap: 1rem;
 }
 
 .progress {
@@ -117,6 +128,10 @@ img {
   color: #121212;
 }
 
+.separtor {
+  border: 1px solid #888;
+}
+
 .chapter-update {
   display: flex;
   flex-direction: column;
@@ -139,9 +154,6 @@ img {
 }
 
 .Current-Lesson {
-  width: 4.688rem;
-  height: 1.313rem;
-  margin: 0.438rem 6.813rem 0.25rem 3.688rem;
   font-family: RobotoSlab, sans-serif;
   font-size: 1rem;
   font-weight: 300;
@@ -151,6 +163,7 @@ img {
   letter-spacing: -0.4px;
   color: #121212;
   white-space: nowrap;
+  margin: 0.063rem 3.625rem 0 3.688rem;
 }
 
 .btn2 {

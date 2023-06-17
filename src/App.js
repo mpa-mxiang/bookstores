@@ -13,17 +13,21 @@ const App = () => (
   <Router>
     <div>
       <nav>
-        <span className="Bookstore-CMS Text-Style-3 text-sky-400">
-          Bookstore CMS
-        </span>
-        <ul>
-          <li>
-            <Link className="BOOKS Text-Style-6" to="/">Books</Link>
-          </li>
-          <li>
-            <Link className="CATEGORIES Text-Style-6" to="/categories">Categories</Link>
-          </li>
-        </ul>
+        <div className="nav-div">
+          <div className="span-div">
+            <span className="Bookstore-CMS Text-Style-3 text-sky-400">
+              Bookstore CMS
+            </span>
+          </div>
+          <ul>
+            <li>
+              <Link className="BOOKS Text-Style-6" to="/">Books</Link>
+            </li>
+            <li>
+              <Link className="CATEGORIES Text-Style-6" to="/categories">Categories</Link>
+            </li>
+          </ul>
+        </div>
         <div>
           <img className="user" src={user} alt="user" />
         </div>
