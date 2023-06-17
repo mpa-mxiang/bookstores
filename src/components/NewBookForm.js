@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBookAsync } from '../redux/books/BookSlice';
+import './NewBookForm.css';
 
 const NewBookForm = () => {
   const [title, setTitle] = useState('');
@@ -23,7 +24,8 @@ const NewBookForm = () => {
   };
 
   return (
-    <div>
+    <div className="bookform">
+      <hr />
       <h3>Add New Book</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -40,11 +42,11 @@ const NewBookForm = () => {
           onChange={(e) => setAuthor(e.target.value)}
           required
         />
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select value={category || 'Category'} onChange={(e) => setCategory(e.target.value)} placeholder="Category" defaultValue="Fiction">
           <option value="Fiction">Fiction</option>
           <option value="Nonfiction">Nonfiction</option>
         </select>
-        <button type="submit">Submit</button>
+        <button className="add" type="submit">ADD BOOK</button>
       </form>
     </div>
   );
