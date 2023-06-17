@@ -5,6 +5,7 @@ import {
   fetchBooksAsync, addBookAsync, removeBookAsync, getBooks,
 } from './redux/books/BookSlice';
 import Book from './components/Book';
+import './Books.css';
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const Books = () => {
   }
 
   return (
-    <div>
+    <div className="booksList">
       {books.map((book) => (
         <Book
           key={book.item_id}

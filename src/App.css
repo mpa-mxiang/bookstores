@@ -39,6 +39,7 @@ h1 {
 nav {
   display: flex;
   background-color: #fff;
+  justify-content: space-around;
 }
 
 .Bookstore-CMS {
