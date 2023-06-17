@@ -12,3 +12,8 @@ p {
 p {
   text-align: center;
 }
+
+.booksList {
+  margin: 0;
+  padding: 0;
+}
