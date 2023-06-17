@@ -12,7 +12,7 @@ const Book = ({
 
   return (
     <div className="Lesson-Panel">
-      <div>
+      <div className="book-char">
         <span className="School-of">
           {category}
         </span>

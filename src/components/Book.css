@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=RobotoSlab+Sans:wght@300;400;500&display=swap');
 
 .Lesson-Panel {
-  width: 66.6rem;
+  width: 75.6rem;
   height: 10.625rem;
   margin: 2.313rem 6.25rem;
   padding: 2rem 9.188rem 1.625rem 1.688rem;
@@ -11,6 +11,12 @@
   background-color: #fff;
   display: flex;
   flex-direction: row;
+  padding-right: 0;
+  align-items: center;
+}
+
+.book-char {
+  width: 55.5%;
 }
 
 .School-of {
