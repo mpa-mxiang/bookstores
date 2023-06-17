@@ -14,15 +14,18 @@ const App = () => (
       <nav>
         <ul>
           <li>
-            <Link to="/">Books</Link>
+            <span className="Bookstore-CMS Text-Style-3 text-sky-400">
+              Bookstore CMS
+            </span>
           </li>
           <li>
-            <Link to="/categories">Categories</Link>
+            <Link className="BOOKS Text-Style-6" to="/">Books</Link>
+          </li>
+          <li>
+            <Link className="CATEGORIES Text-Style-6" to="/categories">Categories</Link>
           </li>
         </ul>
       </nav>
-
-      <h1>Bookstore</h1>
       <Routes>
         <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
